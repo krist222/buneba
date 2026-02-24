@@ -1,0 +1,150 @@
+body {
+  margin: 0;
+  background: black;
+  overflow: hidden;
+  font-family: Arial;
+}
+
+#startBtn {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px 40px;
+  font-size: 22px;
+  background: black;
+  color: white;
+  border: 2px solid white;
+  border-radius: 12px;
+  cursor: pointer;
+  z-index: 999;
+}
+
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.sky {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(#0b0c24, #132c4f);
+  position: relative;
+  transition: opacity 2s ease;
+}
+
+
+.ocean {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 220px;
+  background: linear-gradient(#2a6fbf, #020b3a);
+}
+
+
+.boat {
+  position: absolute;
+  bottom: 60px;
+  left: -150px;
+  width: 120px;
+  height: 40px;
+  background: brown;
+  border-radius: 0 0 20px 20px;
+  animation: sail 12s linear infinite, float 2s ease-in-out infinite;
+}
+
+.boat::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 40px;
+  width: 4px;
+  height: 60px;
+  background: black;
+}
+
+.boat::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 40px;
+  border-left: 40px solid white;
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent;
+}
+
+/* BIRDS */
+.bird {
+  position: absolute;
+  width: 20px;
+  height: 10px;
+  animation: fly 12s linear infinite;
+}
+
+.bird::before,
+.bird::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 5px;
+  border: 2px solid white;
+  border-color: white transparent transparent transparent;
+  border-radius: 50% 50% 0 0;
+}
+
+.bird::after { left: 10px; }
+
+.bird2 { top: 150px; animation-duration: 15s; }
+.bird3 { top: 50px; animation-duration: 10s; }
+
+/* MOON */
+.moonw {
+  position: absolute;
+  right: 100px;
+  top: -150px;
+}
+
+.moon {
+  width: 80px;
+  height: 80px;
+  background: #f5f3ce;
+  border-radius: 50%;
+}
+
+.mask {
+  width: 80px;
+  height: 80px;
+  background: #0b0c24;
+  border-radius: 50%;
+  position: absolute;
+  left: 40px;
+  top: 0;
+}
+
+
+.moon-move {
+  animation: moonMove 5s ease-out forwards;
+}
+
+
+@keyframes sail {
+  from { left: -150px; }
+  to { left: 110%; }
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes fly {
+  from { left: -100px; }
+  to { left: 110%; }
+}
+
+@keyframes moonMove {
+  from { top: -150px; }
+  to { top: 80px; }
+}
